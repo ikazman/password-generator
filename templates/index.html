@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <h1>Генератор паролей</h1>
+        <form action="{% url 'password' %}">
+            <ul>
+                <select name="length">
+                    {% for i in nums %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select> Длина пароля
+                <br>
+                <input type="checkbox" name="uppercase"> Включать строчные буквы
+                <br>
+                <input type="checkbox" name="numbers"> Включать цифры
+                <br>
+                <input type="checkbox" name="special_chars"> Включать специальные знаки
+                <br>
+                <input type="submit" value='Создать пароль' class="btn btn-primary">
+            </ul>
+        </form>
+    </div>
+
+{% endblock %}
